@@ -120,8 +120,20 @@ export default function Hero({ onSelectForm }) {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="relative">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-primary/20 flex items-center justify-center font-bold text-primary">
-                        PT
+                      <div className="w-12 h-12 rounded-full overflow-hidden border border-slate-100 bg-slate-50 flex items-center justify-center shadow-inner">
+                        <img 
+                          src="/founder.png" 
+                          alt="Rishu Rana" 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            const fallback = e.target.parentElement.querySelector('.avatar-fallback');
+                            if (fallback) fallback.classList.remove('hidden');
+                          }}
+                        />
+                        <div className="avatar-fallback hidden absolute inset-0 bg-gradient-to-br from-blue-100 to-primary/20 flex items-center justify-center font-bold text-primary text-xs">
+                          PT
+                        </div>
                       </div>
                       <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-white"></span>
                     </div>
